@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct trackerApp: App {
+    @StateObject var location = Locations()
     var body: some Scene {
         WindowGroup {
             TabView{
                 NavigationView{
-                    ContentView(location:Locations().primary)
+                    ContentView(location:location.primary)
                 }
                 .tabItem {
                     Image(systemName: "airplane.circle.fill")
@@ -28,6 +29,7 @@ struct trackerApp: App {
                     Text("Map")
                 }
             }
+            
         }
     }
 }
